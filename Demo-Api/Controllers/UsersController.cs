@@ -51,7 +51,7 @@ namespace Demo_Api.Controllers
             User? user = _users.SingleOrDefault(u => u.Email == data.Email && u.Password == data.Password);
             if (user is null)
                 return NotFound();
-            return Ok(user);
+            return Ok(new User { Id = user.Id, Email = user.Email, Password = "********"});
         }
 
 
